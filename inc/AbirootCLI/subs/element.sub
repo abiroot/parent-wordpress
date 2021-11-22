@@ -1,0 +1,43 @@
+<?php
+
+if (!class_exists('%name%')) {
+	class %name% extends VC_Element_Abstract
+	{
+
+		public function create_shortcode()
+		{
+			// Stop all if VC is not enabled
+			if (!defined('WPB_VC_VERSION')) {
+				return;
+			}
+
+			// Map blockquote with vc_map()
+			vc_map(array(
+				'name' => __('%nice-name%', '%domain%'),
+				'base' => '%shortcode%',
+				'description' => __('', '%domain%'),
+				'category' => __('%UCdomain% Elements', '%domain%'),
+				'params' => array(
+					array(
+						'heading' => 'Text',
+						'type' => 'tectfield',
+						'param_name' => 'button',
+					)
+				),
+			));
+		}
+		public function render_shortcode($atts, $content, $tag)
+		{
+			$this->initializeTwigTemplate();
+
+			wp_enqueue_style('%shortcode%-style', get_template_directory_uri() .
+				"/vc-elements/elements/%name%/twig-templates/%shortcode%.css", array(), '1.0');
+
+			wp_enqueue_script('%shortcode%-script', get_template_directory_uri() .
+				"/vc-elements/elements/%name%/twig-templates/%shortcode%.js", array('jquery'), '1.0', true);
+
+
+			return $this->twigObj->render("%shortcode%.html.twig", array());
+		}
+	}
+}
