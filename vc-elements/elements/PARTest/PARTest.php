@@ -18,11 +18,17 @@ if (!class_exists('PARTest')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
-					array(
-						'heading' => 'Text',
-						'type' => 'tectfield',
-						'param_name' => 'button',
-					)
+                    array(
+                        'heading' => 'Text',
+                        'type' => 'textfield',
+                        'param_name' => 'button',
+                    ),
+                    array(
+                        'heading' => 'Image',
+                        'type' => 'attach_image',
+                        'param_name' => 'main_image',
+                    ),
+
 				),
 			));
 		}
@@ -36,8 +42,11 @@ if (!class_exists('PARTest')) {
 			wp_enqueue_script('par_test-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARTest/twig-templates/par_test.js", array('jquery'), '1.0', true);
 
-
-			return $this->twigObj->render("par_test.html.twig", array());
+            $side_image = wp_get_attachment_image_src($atts['main_image'], 'full');
+			return $this->twigObj->render("par_test.html.twig", array(
+                'button' => $atts['button'],
+                'main_image' => $side_image[0]
+            ));
 		}
 	}
 }
