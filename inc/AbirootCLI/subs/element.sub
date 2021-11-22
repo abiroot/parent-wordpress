@@ -20,7 +20,7 @@ if (!class_exists('%name%')) {
 				'params' => array(
 					array(
 						'heading' => 'Text',
-						'type' => 'tectfield',
+						'type' => 'textfield',
 						'param_name' => 'button',
 					)
 				),
