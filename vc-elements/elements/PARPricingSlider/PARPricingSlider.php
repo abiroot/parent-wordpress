@@ -18,26 +18,47 @@ if (!class_exists('PARPricingSlider')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
-					array(
-						'heading' => 'Text',
-						'type' => 'textfield',
-						'param_name' => 'button',
-					)
-				),
+                    array(
+                        'heading' => 'Counter',
+                        'type' => 'param_group',
+                        'param_name' => 'counters',
+                        'params' =>
+                            array(
+                                array(
+                                    'param_name' => "counter_text",
+                                    'type' => 'textfield',
+                                    'heading' => "Number of children"
+                                )
+                            ),
+                        "group" => "General"
+                    )
+
+                ),
 			));
 		}
 		public function render_shortcode($atts, $content, $tag)
 		{
 			$this->initializeTwigTemplate();
-
-			wp_enqueue_style('par_pricing_slider-style', get_template_directory_uri() .
+          			wp_enqueue_style('par_pricing_slider-style', get_template_directory_uri() .
 				"/vc-elements/elements/PARPricingSlider/twig-templates/par_pricing_slider.css", array(), '1.0');
 
 			wp_enqueue_script('par_pricing_slider-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARPricingSlider/twig-templates/par_pricing_slider.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_pricing_slider.html.twig", array());
+            $counters = vc_param_group_parse_atts($atts['counters']);
+            $array = [];
+            $i=0 ;
+            foreach ($counters as $counter) {
+                $i=$i+1;
+                if($i<=3){
+                    array_push($array , $counter['counter_text']);
+                }
+            }
+            array_push($array , '75+') ;
+            return $this->twigObj->render("par_pricing_slider.html.twig", array(
+                'counter' => $array
+            ));
 		}
 	}
 }

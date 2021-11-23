@@ -2,42 +2,14 @@
     <div class="container">
         <div class="cards my-5">
             <div class="row text-center">
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-purple.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-red.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-yellow.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-blue.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-cyan.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ stylesheet_directory_uri }}/assets/vectors/hardcoded/creditcard-green.svg" alt="">
-                    <h5 class="my-2"><b>No Credit Card </b></h5>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat earum
-                        doloremque cumque, veritatis fugiat?</p>
-                </div>
+                {% for val in features_box %}
+                    <div class="col-md-4">
+                        <img src="{{ val.image }} " alt="">
+                        <h5 class="my-2"><b>{{ val.title}} </b></h5>
+                        <p class="text-muted">{{ val.text }}</p>
+                    </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>

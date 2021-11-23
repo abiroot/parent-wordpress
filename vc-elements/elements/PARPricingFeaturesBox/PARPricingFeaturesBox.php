@@ -18,12 +18,32 @@ if (!class_exists('PARPricingFeaturesBox')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
-					array(
-						'heading' => 'Text',
-						'type' => 'textfield',
-						'param_name' => 'button',
-					)
-				),
+                    array(
+                        'heading' => 'Feature Box',
+                        'type' => 'param_group',
+                        'param_name' => 'featrues_box',
+                        'params' =>
+                            array(
+                                array(
+                                    'param_name' => "image",
+                                    'type' => 'attach_image',
+                                    'heading' => "Image"
+                                ),
+                                array(
+                                    'param_name' => "title",
+                                    'type' => 'textfield',
+                                    'heading' => "Feature Title"
+                                ),
+                                array(
+                                    'param_name' => "text",
+                                    'type' => 'textfield',
+                                    'heading' => "Feature Text"
+                                )
+                            ),
+                        "group" => "General"
+                    )
+
+                ),
 			));
 		}
 		public function render_shortcode($atts, $content, $tag)
@@ -36,8 +56,15 @@ if (!class_exists('PARPricingFeaturesBox')) {
 			wp_enqueue_script('par_pricing_features_box-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARPricingFeaturesBox/twig-templates/par_pricing_features_box.js", array('jquery'), '1.0', true);
 
-
-			return $this->twigObj->render("par_pricing_features_box.html.twig", array());
+            $featuresBox = vc_param_group_parse_atts($atts['featrues_box']);
+            foreach ($featuresBox as $key => $iconLink) {
+                if(isset($iconLink['image'])){
+                  $featuresBox[$key]['image'] = wp_get_attachment_image_src($iconLink['image'], 'full')[0];
+                }
+            }
+			return $this->twigObj->render("par_pricing_features_box.html.twig", array(
+                'features_box'=>$featuresBox
+            ));
 		}
 	}
 }

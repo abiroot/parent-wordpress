@@ -19,10 +19,15 @@ if (!class_exists('PAREntrepriseQuote')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
-						'heading' => 'Text',
+						'heading' => 'Quote Title',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+						'param_name' => 'quote_title',
+					),
+                    array(
+                        'heading' => 'Sub Quote Title',
+                        'type' => 'textfield',
+                        'param_name' => 'sub_quote_title',
+                    ),
 				),
 			));
 		}
@@ -37,7 +42,11 @@ if (!class_exists('PAREntrepriseQuote')) {
 				"/vc-elements/elements/PAREntrepriseQuote/twig-templates/par_entreprise_quote.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_entreprise_quote.html.twig", array());
+			return $this->twigObj->render("par_entreprise_quote.html.twig", array(
+                'quote_title'=>$atts['quote_title'],
+                'sub_quote_title'=>$atts['sub_quote_title']
+
+            ));
 		}
 	}
 }
