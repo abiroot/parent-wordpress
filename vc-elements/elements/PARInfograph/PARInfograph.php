@@ -71,6 +71,7 @@ if (!class_exists('PARInfograph')) {
 				),
 			));
 		}
+
 		public function render_shortcode($atts, $content, $tag)
 		{
 			$this->initializeTwigTemplate();
