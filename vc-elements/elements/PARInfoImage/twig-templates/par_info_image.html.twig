@@ -1,0 +1,15 @@
+<section class="info-image">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 left-content my-5 my-md-0">
+                {% for counter in title_text %}
+                        <h3>{{ counter.title }}</h3>
+                        <p>{{ counter.text}} </p>
+                {% endfor %}
+            </div>
+            <div class="col-md-6 right-content">
+                <img src="{{ image }}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
