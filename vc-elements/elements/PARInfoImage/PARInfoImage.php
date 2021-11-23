@@ -58,8 +58,8 @@ if (!class_exists('PARInfoImage')) {
             $counters = vc_param_group_parse_atts($atts['title_text']);
             $image = wp_get_attachment_image_src($atts['image'], 'full');
 			return $this->twigObj->render("par_info_image.html.twig", array(
-                'title_text' => $counters,
-                'image' => $image[0]
+                'title_text' => $counters ?? [],
+                'image' => $image[0] ?? ''
             ));
 		}
 	}

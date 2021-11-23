@@ -45,8 +45,8 @@ if (!class_exists('PARHeaderInside')) {
             $banner = wp_get_attachment_image_src($atts['banner'], 'full');
 
 			return $this->twigObj->render("par_header_inside.html.twig", array(
-                'title' => $atts['title'],
-                'banner' => $banner[0]
+                'title' => $atts['title'] ?? '',
+                'banner' => $banner[0] ?? ''
             ));
 		}
 	}

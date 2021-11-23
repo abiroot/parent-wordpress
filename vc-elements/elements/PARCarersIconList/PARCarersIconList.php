@@ -62,7 +62,7 @@ if (!class_exists('PARCarersIconList')) {
                 }
             }
 			return $this->twigObj->render("par_carers_icon_list.html.twig", array(
-                'informations' => $counters
+                'informations' => $counters ?? []
             ));
 		}
 	}

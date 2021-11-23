@@ -43,8 +43,8 @@ if (!class_exists('PARTitleDescription')) {
 
 
 			return $this->twigObj->render("par_title_description.html.twig", array(
-                'title' => $atts['title'],
-                'text' => $atts['text']
+                'title' => $atts['title'] ?? '',
+                'text' => $atts['text'] ?? ''
             ));
 		}
 	}
