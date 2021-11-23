@@ -26,11 +26,10 @@ if (!class_exists('PARENTSBakeryElements')) {
 
 			$elementsPaths = [
 //				"elements/PARButton/PARButton.php",
-				"elements/PARTest/PARTest.php",
+//				"elements/PARTest/PARTest.php",
 				"elements/PARInfograph/PARInfograph.php",
 				"elements/PARBanner/PARBanner.php",
 				"elements/PARInfoslide/PARInfoslide.php",
-//				"elements/PARTest/PARTest.php",
 				"elements/PARPrivacyPolicy/PARPrivacyPolicy.php",
 				"elements/PARHeader/PARHeader.php",
 				"elements/PARIconLinks/PARIconLinks.php",
