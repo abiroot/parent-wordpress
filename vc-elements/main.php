@@ -27,6 +27,7 @@ if (!class_exists('PARENTSBakeryElements')) {
 			$elementsPaths = [
 //				"elements/PARButton/PARButton.php",
 //				"elements/PARTest/PARTest.php",
+				"elements/PARPrivacyPolicy/PARPrivacyPolicy.php",
 			];
 			foreach ($elementsPaths as $elementPath) {
 				$this->registerShortCodeElement($elementPath);
