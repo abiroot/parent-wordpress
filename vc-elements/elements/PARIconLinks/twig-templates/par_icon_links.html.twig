@@ -1,0 +1,16 @@
+<section class="icon-links">
+    <div class="container">
+        <div class="links">
+            <div class="row align-items-center">
+                {% for link in icon_links %}
+                    <div class="col-6 col-sm-4 col-md-2 link">
+                        <a href="#">
+                            <img src="{{ link.icon }} "  alt="">
+                            <span>{{ link.link_text }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
