@@ -68,6 +68,11 @@ if (!class_exists('PARInfograph')) {
                         'type' => 'textfield',
                         'param_name' => 'button_url',
                     ),
+                    array(
+                        'heading' => 'Avatar Class',
+                        'type' => 'textfield',
+                        'param_name' => 'avatar_class',
+                    ),
 				),
 			));
 		}
@@ -96,6 +101,7 @@ if (!class_exists('PARInfograph')) {
                 'img_left' => $atts['img_left'],
                 'button_text' => $atts['button_text'],
                 'button_url' => $atts['button_url'],
+                'avatar_class' => $atts['avatar_class'],
             ));
 		}
 	}
