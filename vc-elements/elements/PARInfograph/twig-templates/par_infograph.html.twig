@@ -1,0 +1,26 @@
+<section class="infograph">
+    {% if has_purple_bg %}
+        <img src="{{ stylesheet_directory_uri }}/assets/vectors/bg-purple.svg" alt="" class="bg-vector-purple">
+    {% endif %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-section {{ img_left ? 'order-1 order-md-2' : ''  }} ">
+                <h3>{{ title }}</h3>
+                <p>
+                    {{ text_area }}
+                </p>
+                <a href="{{ redirect_url }}" class="more-link">{{ redirect_title }}</a>
+                <a href="{{ button_url }}" class="btn btn-primary mx-1">{{ button_text }}</a>
+            </div>
+            <div class="col-md-6">
+                <div class="video-holder" {{ img_left ? 'order-2 order-md-1' : ''  }} >
+                    <img class="avatar avatar-eyes" src="{{ avatar }}" alt="">
+                    <video muted preload autoplay loop>
+                        <source src="{{ video }}" type="video/webm">
+                        <p>Your user agent does not support the HTML5 Video element.</p>
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
