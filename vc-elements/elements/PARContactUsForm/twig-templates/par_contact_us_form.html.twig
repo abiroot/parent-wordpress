@@ -33,15 +33,15 @@
                     {% endfor %}
                     <div class="social-links">
                         <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item"><a href="https://twitter.com"><i class="bi bi-twitter"></i></a>
+                            <li class="list-group-item"><a href="{{ twitter }}"><i class="bi bi-twitter"></i></a>
                             </li>
-                            <li class="list-group-item"><a href="https://facebook.com"><i
+                            <li class="list-group-item"><a href="{{ facebook }}"><i
                                             class="bi bi-facebook"></i></a></li>
-                            <li class="list-group-item"><a href="https://instagram.com"><i class="bi bi-instagram"></i></a>
+                            <li class="list-group-item"><a href="{{ instagram }}"><i class="bi bi-instagram"></i></a>
                             </li>
-                            <li class="list-group-item"><a href="https://pinterest.com"><i class="bi bi-pinterest"></i></a>
+                            <li class="list-group-item"><a href="{{ pinterest }}"><i class="bi bi-pinterest"></i></a>
                             </li>
-                            <li class="list-group-item"><a href="https://pinterest.com"><i
+                            <li class="list-group-item"><a href="{{ youtube }}"><i
                                             class="bi bi-youtube"></i></a></li>
                         </ul>
                     </div>
@@ -78,7 +78,18 @@
         </div>
     </div>
 </section>
-
+<section class="parent-map">
+    <div class="container">
+        <div class="row">
+            {% for counter in informations %}
+                <div class="col-md-12 parent-map" id="map-{{ counter.country_code }}" {{ loop.index != 1 ? 'hidden' : '' }}>
+                    <iframe src="{{ counter.map_url }}"
+                            width="100%" height="200" frameborder="0" style="border:0"></iframe>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 <script>
     (function ($) {
         "use strict"; // Start of use strict
@@ -88,10 +99,12 @@
                 $("#address-picker .countries-list li").removeClass("active");
                 if(oldCountryCode){
                     $('#' + oldCountryCode).prop('hidden' ,true)
+                    $('#map-' + oldCountryCode).prop('hidden' ,true)
                 }
                 $(this).addClass('active');
                 var countryCode = $(this).attr('data-country');
                 $('#' + countryCode).removeAttr('hidden')
+                $('#map-' + countryCode).removeAttr('hidden')
                 oldCountryCode=countryCode
 
             });

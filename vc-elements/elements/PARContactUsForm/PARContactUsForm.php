@@ -29,6 +29,31 @@ if (!class_exists('PARContactUsForm')) {
                         'param_name' => 'main_text',
                     ),
                     array(
+                        'heading' => 'Facebook URL',
+                        'type' => 'textfield',
+                        'param_name' => 'facebook',
+                    ),
+                    array(
+                        'heading' => 'Twitter URL',
+                        'type' => 'textfield',
+                        'param_name' => 'twitter',
+                    ),
+                    array(
+                        'heading' => 'Instagram URL',
+                        'type' => 'textfield',
+                        'param_name' => 'instagram',
+                    ),
+                    array(
+                        'heading' => 'Pinterest URL',
+                        'type' => 'textfield',
+                        'param_name' => 'pinterest',
+                    ),
+                    array(
+                        'heading' => 'Youtube URL',
+                        'type' => 'textfield',
+                        'param_name' => 'youtube',
+                    ),
+                    array(
                         'heading' => 'Country Code Counter',
                         'type' => 'param_group',
                         'param_name' => 'codes',
@@ -79,6 +104,11 @@ if (!class_exists('PARContactUsForm')) {
                                 'type' => 'textfield',
                                 'heading' => "Country Mail",
                             ),
+                            array(
+                                'param_name' => "map_url",
+                                'type' => 'textfield',
+                                'heading' => "Google maps iframe URL",
+                            ),
                         ),
                     )
                 ),
@@ -101,6 +131,11 @@ if (!class_exists('PARContactUsForm')) {
             return $this->twigObj->render("par_contact_us_form.html.twig", array(
                 'main_title' => $atts['main_title'],
                 'main_text' => $atts['main_text'],
+                'youtube' => $atts['youtube'] ?? '#',
+                'instagram' => $atts['instagram'] ?? '#',
+                'facebook' => $atts['facebook'] ?? '#',
+                'twitter' => $atts['twitter'] ?? '#',
+                'pinterest' => $atts['pinterest'] ?? '#',
                 'codes' => $counters,
                 'informations' => $counters_informations
             ));
