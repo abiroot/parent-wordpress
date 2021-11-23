@@ -180,6 +180,7 @@ require get_template_directory() . '/vc-elements/main.php';
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require get_template_directory() . '/inc/AbirootCLI/class-abiroot-cli.php';
+require get_template_directory() . '/inc/meta-box-class/my-meta-box-class.php';
 
 /**
  * Custom template tags for this theme.
@@ -190,6 +191,7 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/custom-posts.php';
 
 /**
  * Customizer additions.
@@ -256,4 +258,3 @@ function abr_cli_register_commands() {
 }
 
 add_action( 'cli_init', 'abr_cli_register_commands' );
-

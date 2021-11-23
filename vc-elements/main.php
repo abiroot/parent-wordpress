@@ -27,6 +27,7 @@ if (!class_exists('PARENTSBakeryElements')) {
 			$elementsPaths = [
 //				"elements/PARButton/PARButton.php",
 //				"elements/PARTest/PARTest.php",
+				"elements/PARPrivacyPolicy/PARPrivacyPolicy.php",
 				"elements/PARHeader/PARHeader.php",
 				"elements/PARIconLinks/PARIconLinks.php",
 				"elements/PARCounters/PARCounters.php",

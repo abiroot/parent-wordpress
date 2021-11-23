@@ -1,0 +1,44 @@
+<section class="privacy-policy">
+    <!-- privacy and policy -->
+    <div class="container my-5">
+        <h1>Privacy and Policy</h1>
+        <div class="d-flex flex-wrap">
+            {% for key, title in pages_titles %}
+                <span class="pnp-link {{ key == 0 ? 'active' : '' }}">
+                    <a href="#" data-page="{{ key }}">{{ title }}</a>
+                </span>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+    {% for key, page in pages %}
+        <div class="container card-text mt-5" data-page="{{ key }}" style="{{ key == 0 ?  '' : 'display: none' }}">
+            <div class="row justify-content-between px-5 pt-5">
+                <div class="col-lg-4 my-4 mx-auto">
+                    <img src="{{ page.main_image }}" class="w-100" alt="">
+                </div>
+                <div class="col-lg-6 my-4 scrollable">
+                    <div class="complementary">
+                        <h1>{{ page.main_title }}</h1>
+                        <h4>{{ page.sub_title }}</h4>
+                        <span>{{ page.category }}</span>
+                    </div>
+                    <p class="my-3">
+                        {{ page.main_content }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="container d-none">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <a href="#" class="more-link float-end d-inline-block text-end">Next</a>
+                <a href="#" class="more-link arrow-left float-start d-inline-block">Previous</a>
+            </div>
+        </div>
+    </div>
+</section>
