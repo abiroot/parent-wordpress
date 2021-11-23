@@ -19,14 +19,37 @@ if (!class_exists('PARInfoslide')) {
                 'category' => __('Parents Elements', 'parents'),
                 'params' => array(
                     array(
-                        'heading' => 'Title',
-                        'type' => 'textfield',
-                        'param_name' => 'title',
-                    ),
-                    array(
-                        'heading' => 'Title',
-                        'type' => 'textfield',
-                        'param_name' => 'title',
+                        'heading' => 'Counter Title, Text and Image ',
+                        'type' => 'param_group',
+                        'param_name' => 'informations',
+                        'params' => array(
+                            array(
+                                'param_name' => "title",
+                                'type' => 'textfield',
+                                'heading' => "Title"
+                            ),
+
+                            array(
+                                'param_name' => "text",
+                                'type' => 'textfield',
+                                'heading' => "Text",
+                            ),
+                            array(
+                                'param_name' => "author",
+                                'type' => 'textfield',
+                                'heading' => "Author",
+                            ),
+                            array(
+                                'param_name' => "position",
+                                'type' => 'textfield',
+                                'heading' => "Position",
+                            ),
+                            array(
+                                'param_name' => "image",
+                                'type' => 'attach_image',
+                                'heading' => "Image",
+                            ),
+                        ),
                     )
                 ),
             ));
@@ -51,8 +74,17 @@ if (!class_exists('PARInfoslide')) {
             wp_enqueue_script('plugin-splide-script', get_template_directory_uri() .
                 "/assets/plugins/splide/js/splide.min.js", array('jquery'), '1.0', true);
 
+            $counters = vc_param_group_parse_atts($atts['informations']);
 
-            return $this->twigObj->render("par_infoslide.html.twig", array());
+            foreach ($counters as $key => $counter) {
+                if(isset($counter['image'])){
+                    $counters[$key]['image'] = wp_get_attachment_image_src($counter['image'], 'full')[0];
+                }
+            }
+
+            return $this->twigObj->render("par_infoslide.html.twig", array(
+                'informations' => $counters ?? []
+            ));
         }
     }
 }
