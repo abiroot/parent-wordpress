@@ -153,8 +153,17 @@ function parents_scripts() {
 
 
 	//	Bootstrap
-	wp_enqueue_style('eivolo-twitter-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", array(), "5.0.2");
-	wp_enqueue_script('eivolo-twitter-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", array('jquery'), "5.0.2", true);
+	wp_enqueue_style('parent-twitter-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", array(), "5.0.2");
+	wp_enqueue_script('parent-twitter-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", array('jquery'), "5.0.2", true);
+
+	//	rSlider - Pricing Page
+	wp_enqueue_style('parent-rslider', get_template_directory_uri() . '/assets/plugins/rSlider/rSlider.css', array(), "1.0.0");
+	wp_enqueue_script('parent-rslider', get_template_directory_uri() . '/assets/plugins/rSlider/rSlider.min.js', array("jquery"), "1.0.0", true);
+
+	//	Splide
+	wp_enqueue_style('plugin-splide-style', get_template_directory_uri() . "/assets/plugins/splide/css/splide.min.css", array(), '1.0');
+	wp_enqueue_style('plugin-splide-theme-style', get_template_directory_uri() . "/assets/plugins/splide/css/splide.theme.css", array(), '1.0');
+	wp_enqueue_script('plugin-splide-script', get_template_directory_uri() . "/assets/plugins/splide/js/splide.min.js", array('jquery'), '1.0', true);
 
 
 	wp_enqueue_script( 'parents-navigation', get_template_directory_uri() . '/js/navigation.js', array(), PARENTS_VERSION, true );
