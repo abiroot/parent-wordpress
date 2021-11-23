@@ -22,7 +22,8 @@ if (!class_exists('PARCounters')) {
                         'heading' => 'Counter',
                         'type' => 'param_group',
                         'param_name' => 'counters',
-                        'params' => array(
+                        'params' =>
+                            array(
                             array(
                                 'param_name' => "counter_text",
                                 'type' => 'textfield',

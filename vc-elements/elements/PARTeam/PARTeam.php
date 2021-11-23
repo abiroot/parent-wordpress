@@ -21,8 +21,19 @@ if (!class_exists('PARTeam')) {
 					array(
 						'heading' => 'Text',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+						'param_name' => 'title',
+					),
+                    array(
+                        'heading' => 'Content',
+                        'type' => 'textfield',
+                        'param_name' => 'paragraph',
+                    ),
+                    array(
+                        'heading' => 'Side Image',
+                        'type' => 'attach_image',
+                        'param_name' => 'side_image',
+                    )
+
 				),
 			));
 		}
@@ -35,9 +46,14 @@ if (!class_exists('PARTeam')) {
 
 			wp_enqueue_script('par_team-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARTeam/twig-templates/par_team.js", array('jquery'), '1.0', true);
+            $side_image = wp_get_attachment_image_src($atts['side_image'], 'full')[0];
 
 
-			return $this->twigObj->render("par_team.html.twig", array());
+			return $this->twigObj->render("par_team.html.twig", array(
+                'title'=>$atts['title'] ?? '',
+                'paragraph'=>$atts['paragraph'] ?? '',
+                'side_image'=>$side_image ?? '',
+            ));
 		}
 	}
 }

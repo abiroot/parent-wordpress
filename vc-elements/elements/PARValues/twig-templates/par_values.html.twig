@@ -1,30 +1,21 @@
 <section class="values">
     <div class="container">
-        <h2 class="text-center">Our Three Core Values</h2>
+        <h2 class="text-center">{{ title_text }}</h2>
         <div class="row align-items-center">
+            {% for value in values %}
             <div class="col-md-4 text-center">
-                <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/purpose.png" alt="">
-                <h3> Purpose</h3>
-                <p>
-                    We are nothing without you, the carers. This means everything we do must be driven by our purpose to set carers free.
-                </p>
+
+                    {% if(loop.index <=3 ) %}
+                    <img src="{{ value.icon }}" alt="">
+                    <h3> {{ value.value_title }}</h3>
+                    <p> {{ value.value_paragraph }}
+                    </p>
+                    {% endif %}
+
+
             </div>
-            <div class="col-md-4 text-center">
-                <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/openess.png" alt="">
-                <h3> Integrity</h3>
-                <p>
-                    We are only as good as the problems we can solve. That’s why our line is always open,
-                    and we continue to reach new heights with your input and feedback.
-                </p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/integrity.png" alt="">
-                <h3> openess </h3>
-                <p>
-                    We ask you to trust us with sensitive data. That’s why we are committed to full data
-                    security; to never promising what we can’t deliver; and to be fully transparent about how we do business.
-                </p>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </section>
