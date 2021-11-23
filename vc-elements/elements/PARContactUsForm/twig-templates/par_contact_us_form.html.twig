@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-4">
-                <h1>Parent is all about our users and stakeholders</h1>
-                <p>Get in touch right here</p>
+                <h1>{{ main_title }}</h1>
+                <p>{{ main_text }}</p>
             </div>
         </div>
 
@@ -11,23 +11,26 @@
             <div class="col-md-6">
                 <div class="address-picker" id="address-picker">
                     <ul class="countries-list list-group list-group-horizontal">
-                        <li data-country="dk" class="list-group-item flex-fill active">DK</li>
-                        <li data-country="de" class="list-group-item flex-fill">DE</li>
-                        <li data-country="se" class="list-group-item flex-fill">SE</li>
-                        <li data-country="no" class="list-group-item flex-fill">NO</li>
-                        <li data-country="uae" class="list-group-item flex-fill">UAE</li>
+                        {% for counter in codes %}
+                            <li data-country="{{ counter.country_code }}" class="list-group-item flex-fill {{ loop.index == 1 ? 'active' : '' }}">
+                                {{ counter.country_abbreviation }}</li>
+                        {% endfor %}
                     </ul>
-                    <div class="country-info">
-                        <span class="country">Denmark(HQ)</span>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item address"><i class="bi bi-geo-alt-fill"></i><span>Rentemestervej 2A, Copenhagen NV 2400</span>
-                            </li>
-                            <li class="list-group-item phone"><a href="#"><i class="bi bi-telephone-fill"></i><span>+45 8877 4044</span></a>
-                            </li>
-                            <li class="list-group-item mail"><a href="#"><i class="bi bi-envelope-fill"></i><span>contact@parent.cloud</span></a>
-                            </li>
-                        </ul>
+                    {% for counter in informations %}
+                    <div class="country-info" id="{{ counter.country_code }}" {{ loop.index != 1 ? 'hidden' : '' }}>
+
+                            <span class="country">{{ counter.country_name }}</span>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item address"><i class="bi bi-geo-alt-fill"></i><span>{{ counter.country_address }}</span>
+                                </li>
+                                <li class="list-group-item phone"><a href="tel:{{ counter.country_phone }}"><i class="bi bi-telephone-fill"></i><span>{{ counter.country_phone }}</span></a>
+                                </li>
+                                <li class="list-group-item mail"><a href="mailto:{{ counter.country_mail }}"><i class="bi bi-envelope-fill"></i><span>{{ counter.country_mail }}</span></a>
+                                </li>
+                            </ul>
+
                     </div>
+                    {% endfor %}
                     <div class="social-links">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item"><a href="https://twitter.com"><i class="bi bi-twitter"></i></a>
@@ -75,3 +78,24 @@
         </div>
     </div>
 </section>
+
+<script>
+    (function ($) {
+        "use strict"; // Start of use strict
+        var oldCountryCode=$('.country-info')[0].id
+        if ($("#address-picker").length > 0) {
+            $("#address-picker .countries-list li").on("click", function () {
+                $("#address-picker .countries-list li").removeClass("active");
+                if(oldCountryCode){
+                    $('#' + oldCountryCode).prop('hidden' ,true)
+                }
+                $(this).addClass('active');
+                var countryCode = $(this).attr('data-country');
+                $('#' + countryCode).removeAttr('hidden')
+                oldCountryCode=countryCode
+
+            });
+        }
+    })(jQuery)
+</script>
+

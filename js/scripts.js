@@ -123,33 +123,33 @@
     }
 
 
-    if ($("#address-picker").length > 0) {
-        $("#address-picker .countries-list li").on("click", function(){
-            $("#address-picker .countries-list li").removeClass("active");
-            $(this).addClass('active');
-            var countryCode = $(this).attr('data-country');
-            let countryNameElement = $(".country-info .country");
-            let addressElement = $(".country-info ul li.address");
-            let phoneElement = $(".country-info ul li.phone");
-            let mailElement = $(".country-info ul li.mail ");
-
-            if(countryCode === "dk"){
-                countryNameElement.text("Denmark(HQ)");
-                addressElement.find("span").text("Rentemestervej 2A, Copenhagen NV 2400");
-                phoneElement.find("span").text("+45 8877 4044");
-                phoneElement.find("a").attr("href", "tel:+45 8877 4044");
-                mailElement.find("span").text("contact@parent.cloud");
-                mailElement.find("a").attr("href", "mailto:contact@parent.cloud");
-            }else{
-                countryNameElement.text("Country");
-                addressElement.find("span").text("Address");
-                phoneElement.find("span").text("phone");
-                phoneElement.find("a").attr("href", "tel:+45 8877 4044");
-                mailElement.find("span").text("email");
-                mailElement.find("a").attr("href", "mailto:email");
-            }
-        });
-    }
+    // if ($("#address-picker").length > 0) {
+    //     $("#address-picker .countries-list li").on("click", function(){
+    //         $("#address-picker .countries-list li").removeClass("active");
+    //         $(this).addClass('active');
+    //         var countryCode = $(this).attr('data-country');
+    //         let countryNameElement = $(".country-info .country");
+    //         let addressElement = $(".country-info ul li.address");
+    //         let phoneElement = $(".country-info ul li.phone");
+    //         let mailElement = $(".country-info ul li.mail ");
+    //
+    //         if(countryCode === "dk"){
+    //             countryNameElement.text("Denmark(HQ)");
+    //             addressElement.find("span").text("Rentemestervej 2A, Copenhagen NV 2400");
+    //             phoneElement.find("span").text("+45 8877 4044");
+    //             phoneElement.find("a").attr("href", "tel:+45 8877 4044");
+    //             mailElement.find("span").text("contact@parent.cloud");
+    //             mailElement.find("a").attr("href", "mailto:contact@parent.cloud");
+    //         }else{
+    //             countryNameElement.text("Country");
+    //             addressElement.find("span").text("Address");
+    //             phoneElement.find("span").text("phone");
+    //             phoneElement.find("a").attr("href", "tel:+45 8877 4044");
+    //             mailElement.find("span").text("email");
+    //             mailElement.find("a").attr("href", "mailto:email");
+    //         }
+    //     });
+    // }
 
 
 })(jQuery); // End of use strict
