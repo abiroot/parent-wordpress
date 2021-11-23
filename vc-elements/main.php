@@ -37,6 +37,8 @@ if (!class_exists('PARENTSBakeryElements')) {
 				"elements/PARPricingHeader/PARPricingHeader.php",
 				"elements/PARPricingSlider/PARPricingSlider.php",
 				"elements/PARPricingFeatures/PARPricingFeatures.php",
+				"elements/PARPricingFeaturesBox/PARPricingFeaturesBox.php",
+				"elements/PAREntrepriseQuote/PAREntrepriseQuote.php",
 			];
 			foreach ($elementsPaths as $elementPath) {
 				$this->registerShortCodeElement($elementPath);
