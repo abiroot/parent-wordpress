@@ -54,6 +54,10 @@ if (!class_exists('PARENTSBakeryElements')) {
 				"elements/PARContactUsForm/PARContactUsForm.php",
 				"elements/PARContactUsParentMap/PARContactUsParentMap.php",
 				"elements/PARBlogHeader/PARBlogHeader.php",
+				"elements/PARHeaderInside/PARHeaderInside.php",
+				"elements/PARTitleDescription/PARTitleDescription.php",
+				"elements/PARInfoImage/PARInfoImage.php",
+				"elements/PARCarersIconList/PARCarersIconList.php",
 			];
 			foreach ($elementsPaths as $elementPath) {
 				$this->registerShortCodeElement($elementPath);

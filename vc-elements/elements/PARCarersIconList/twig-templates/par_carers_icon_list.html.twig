@@ -1,0 +1,15 @@
+<section class="carers-icon-list">
+    <div class="container">
+        <div class="row">
+            {% for counter in informations %}
+                <div class="col-md-4 left-content my-5">
+                    <div class="icon-bg text-center">
+                        <img src="{{ counter.icon }}" alt="">
+                        <h3> {{ counter.title }}</h3>
+                        <p> {{ counter.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
