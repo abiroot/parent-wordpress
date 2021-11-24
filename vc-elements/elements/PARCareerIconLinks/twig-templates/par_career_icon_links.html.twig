@@ -1,44 +1,16 @@
 <section class="icon-links py-5">
     <div class="container">
-        <h2 class="text-center orange-title">Sweet Perks</h2>
+        <h2 class="text-center orange-title">{{ main_title }}</h2>
         <div class="links">
             <div class="row align-items-center">
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-1.png" alt="">
-                        <span>Food Plan</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-2.png" alt="">
-                        <span>Class Overview</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-3.png" alt="">
-                        <span>Holiday Feedback</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-4.png" alt="">
-                        <span>Document Center</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-1.png" alt="">
-                        <span>Detailed Report</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-md-2 link">
-                    <a href="#">
-                        <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/icon-link-1.png" alt="">
-                        <span>View more features!</span>
-                    </a>
-                </div>
+                {% for counter in informations %}
+                    <div class="col-6 col-sm-4 col-md-2 link">
+                        <a href="{{ counter.url }}">
+                            <img src="{{ counter.icon }}" alt="">
+                            <span>{{ counter.title }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -19,9 +19,14 @@ if (!class_exists('PARCareerTitleDescription')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
+						'heading' => 'Title',
+						'type' => 'textfield',
+						'param_name' => 'title',
+					),
+                    array(
 						'heading' => 'Text',
 						'type' => 'textfield',
-						'param_name' => 'button',
+						'param_name' => 'text',
 					)
 				),
 			));
@@ -37,7 +42,10 @@ if (!class_exists('PARCareerTitleDescription')) {
 				"/vc-elements/elements/PARCareerTitleDescription/twig-templates/par_career_title_description.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_career_title_description.html.twig", array());
+			return $this->twigObj->render("par_career_title_description.html.twig", array(
+                'title' => $atts['title'],
+                'text' => $atts['text']
+            ));
 		}
 	}
 }

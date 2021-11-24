@@ -18,11 +18,33 @@ if (!class_exists('PARCareerIconLinks')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
-					array(
-						'heading' => 'Text',
-						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+                    array(
+                        'heading' => 'Counter Title and Icon',
+                        'type' => 'param_group',
+                        'param_name' => 'informations',
+                        'params' => array(
+                            array(
+                                'param_name' => "title",
+                                'type' => 'textfield',
+                                'heading' => "Title"
+                            ),
+                            array(
+                                'param_name' => "icon",
+                                'type' => 'attach_image',
+                                'heading' => "Icon",
+                            ),
+                            array(
+                                'param_name' => "url",
+                                'type' => 'textfield',
+                                'heading' => "URL",
+                            ),
+                        ),
+                    ),
+                    array(
+                        'heading' => 'Main Title',
+                        'type' => 'textfield',
+                        'param_name' => 'main_title',
+                    ),
 				),
 			));
 		}
@@ -37,7 +59,18 @@ if (!class_exists('PARCareerIconLinks')) {
 				"/vc-elements/elements/PARCareerIconLinks/twig-templates/par_career_icon_links.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_career_icon_links.html.twig", array());
+            $counters = vc_param_group_parse_atts($atts['informations']);
+
+            foreach ($counters as $key => $counter) {
+                if(isset($counter['icon'])){
+                    $counters[$key]['icon'] = wp_get_attachment_image_src($counter['icon'], 'full')[0];
+                }
+            }
+
+			return $this->twigObj->render("par_career_icon_links.html.twig", array(
+                'informations' => $counters,
+                'main_title' => $atts['main_title']
+            ));
 		}
 	}
 }

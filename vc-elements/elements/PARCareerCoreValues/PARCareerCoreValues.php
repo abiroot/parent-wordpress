@@ -18,11 +18,28 @@ if (!class_exists('PARCareerCoreValues')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
-					array(
-						'heading' => 'Text',
-						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+                    array(
+                        'heading' => 'Counter Title and Icon',
+                        'type' => 'param_group',
+                        'param_name' => 'informations',
+                        'params' => array(
+                            array(
+                                'param_name' => "title",
+                                'type' => 'textfield',
+                                'heading' => "Title"
+                            ),
+                            array(
+                                'param_name' => "text",
+                                'type' => 'textfield',
+                                'heading' => "Text",
+                            ),
+                            array(
+                                'param_name' => "icon",
+                                'type' => 'iconpicker',
+                                'heading' => "Icon",
+                            ),
+                        ),
+                    ),
 				),
 			));
 		}
@@ -37,7 +54,11 @@ if (!class_exists('PARCareerCoreValues')) {
 				"/vc-elements/elements/PARCareerCoreValues/twig-templates/par_career_core_values.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_career_core_values.html.twig", array());
+            $counters = vc_param_group_parse_atts($atts['informations']);
+
+			return $this->twigObj->render("par_career_core_values.html.twig", array(
+                'informations' => $counters
+            ));
 		}
 	}
 }

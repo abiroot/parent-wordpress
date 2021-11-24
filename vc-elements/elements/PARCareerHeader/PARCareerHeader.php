@@ -19,10 +19,27 @@ if (!class_exists('PARCareerHeader')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
-						'heading' => 'Text',
-						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+                        'heading' => 'Counter Title and Text',
+                        'type' => 'param_group',
+                        'param_name' => 'informations',
+                        'params' => array(
+                            array(
+                                'param_name' => "title",
+                                'type' => 'textfield',
+                                'heading' => "Title"
+                            ),
+                            array(
+                                'param_name' => "text",
+                                'type' => 'textfield',
+                                'heading' => "text",
+                            ),
+                        ),
+                    ),
+                    array(
+                        'heading' => 'Banner Image',
+                        'type' => 'attach_image',
+                        'param_name' => 'banner',
+                    ),
 				),
 			));
 		}
@@ -37,7 +54,13 @@ if (!class_exists('PARCareerHeader')) {
 				"/vc-elements/elements/PARCareerHeader/twig-templates/par_career_header.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_career_header.html.twig", array());
+            $counters = vc_param_group_parse_atts($atts['informations']);
+            $banner = wp_get_attachment_image_src($atts['banner'], 'full');
+
+			return $this->twigObj->render("par_career_header.html.twig", array(
+                'informations' => $counters ?? [],
+                'banner' => $banner[0] ?? ''
+            ));
 		}
 	}
 }
