@@ -16,44 +16,44 @@
 
     <!-- Section: Links  -->
     <section class="p-4">
-        <div class="container text-center text-md-start my-5">
+        <div class="container text-center text-md-start mt-5">
             <!-- Grid row -->
             <div class="row mt-3">
                 <!-- Grid column -->
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-4">
-                            <div>
+                            <p>
                                 <a href="#!" class="footer-link">Contact Us</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Blog</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Entreprise</a>
-                            </div>
+                            </p>
                         </div>
                         <div class="col-md-4">
-                            <div>
+                            <p>
                                 <a href="#!" class="footer-link">Terms and Conditions</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Privacy and Policy</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Help Center</a>
-                            </div>
+                            </p>
                         </div>
                         <div class="col-md-4">
-                            <div>
+                            <p>
                                 <a href="#!" class="footer-link">Our Vision</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Security & Data</a>
-                            </div>
-                            <div>
+                            </p>
+                            <p>
                                 <a href="#!" class="footer-link">Careers</a>
-                            </div>
+                            </p>
                         </div>
 
                     </div>
@@ -61,66 +61,33 @@
                 </div>
                 <div class="col-md-4">
                     <form action="" class="request-quote">
-                        <span class="text-white my-3">Request a quote</span>
-                        <input type="email" placeholder="Email Address" class="w-75">
+                        <span class="text-white">Request a quote</span>
+                        <div class="email">
+                            <input type="email" placeholder="Email Address">
+                            <img src="assets/vectors/footer-arrow.svg" alt="">
+                        </div>
                     </form>
                 </div>
                 <!-- Grid column -->
             </div>
             <!-- Grid row -->
 
-            <div class="row justify-content-between my-5">
-                <div class="col-md">
-                    <img src="assets/images/logo-footer.png" alt="">
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png" alt="">
                     <span class="text-white">2021 © Copyright Parent ApS</span>
                 </div>
-                <div class="col-md">
-                    <div class="row justify-content-between">
-                        <div class=" col-md">
-                            <a href="#!">
-                                <img src="./assets/images/appstore-logo.png" class="my-2" alt="">
-                            </a>
-                        </div>
-                        <div class=" col-md">
-                            <a href="#!">
-                                <img src="./assets/images/googleplay-logo.png" class="my-2" alt="">
-                            </a>
-                        </div>
-                        <div class=" col-md">
-                            <a href="#!">
-                                <img src="./assets/images/appgallery-logo.png" class="my-2" alt="">
-                            </a>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-store.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/google-play.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-gallery.png" alt="">
                 </div>
-                <div class="col-md">
-                    <div class="row justify-content-between">
-                        <div class="col-md">
-                            <a href="#!">
-                                <img src="./assets/images/twitter-logo.png" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md">
-                            <a href="#!">
-                                <img src="./assets/images/youtube-logo.png" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md">
-                            <a href="#!">
-                                <img src="./assets/images/facebook-logo.png" class="facebook-adjusted-size" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md">
-                            <a href="#!">
-                                <img src="./assets/images/instagram-logo.png" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md">
-                            <a href="#!">
-                                <img src="./assets/images/pinterest-logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
+                <div class="col-md-4 social-media">
+                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/twitter.svg" alt=""></a>
+                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/youtube.svg" alt=""></a>
+                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/facebook.svg" alt=""></a>
+                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/instagram.svg" alt=""></a>
+                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/pinterest.svg" alt=""></a>
                 </div>
             </div>
         </div>

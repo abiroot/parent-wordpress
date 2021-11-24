@@ -1349,6 +1349,7 @@ section.banner a {
 
 /*Banner End*/
 
+
 footer {
     background-color: #3D0671;
     color: white;
@@ -1359,8 +1360,14 @@ footer a {
     text-decoration: none;
 }
 
-footer .request-quote {
-
+footer a:hover {
+    color: gray;
+}
+.footer-btn{
+    background: red;
+    position: absolute;
+    right: 80px;
+    top: 31px;
 }
 
 footer .request-quote span {
@@ -1380,6 +1387,7 @@ footer .request-quote input {
     margin-top: 10px;
     max-width: 350px;
     color: white;
+    outline: none;
 }
 
 footer .request-quote input::placeholder {
@@ -1394,6 +1402,21 @@ footer .facebook-adjusted-size {
 footer .input-arrow {
     position: relative;
     top: 0;
+}
+footer .social-media{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .email{
+    position: relative;
+}
+footer .email img{
+    position: absolute;
+    right: 10px;
+    left: 300px;
+    top: 23px;
 }
 
 /*// Medium devices (tablets, less than 992px)*/
