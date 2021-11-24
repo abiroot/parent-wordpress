@@ -1324,8 +1324,24 @@ section.career-positions .career-box .btn-primary {
 
 
 /*Title Description*/
-section.title-description {
 
+/*Start section title-description */
+section.title-description {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+section.title-description h2{
+    font-weight: bold;
+    font-size: 32px;
+    color: #1D093C;
+    margin-top:10px;
+}
+
+section.title-description p{
+    color: #1D093C;
+    font-weight: normal;
+    font-size: 16px;
 }
 
 section.title-description p {
@@ -1336,7 +1352,6 @@ section.title-description p {
     margin-right: auto;
     color: #1D093C;
 }
-
 /*Title Description End*/
 
 /*Core Values*/
