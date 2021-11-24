@@ -11,13 +11,33 @@ if (!class_exists('PARContactUsForm')) {
                 return;
             }
 
-            // Map blockquote with vc_map()
+			$cf7 = get_posts('post_type="wpcf7_contact_form"&numberposts=-1');
+			$contact_forms = array();
+			if ($cf7) {
+				foreach ($cf7 as $cform) {
+					$contact_forms[$cform->post_title] = $cform->ID;
+				}
+			} else {
+				$contact_forms[esc_html__('No contact forms found', 'eivolo')] = 0;
+			}
+
+
+			// Map blockquote with vc_map()
             vc_map(array(
                 'name' => __('PARContactUsForm', 'parents'),
                 'base' => 'par_contact_us_form',
                 'description' => __('', 'parents'),
                 'category' => __('Parents Elements', 'parents'),
                 'params' => array(
+					array(
+						'type' => 'dropdown',
+						'heading' => esc_html__('Select contact form', 'parents'),
+						'param_name' => 'contact_form_id',
+						'value' => $contact_forms,
+						'save_always' => true,
+						'description' => esc_html__('Choose previously created contact form from the drop down list.', 'parents'),
+						'group' => "Contact Form"
+					),
                     array(
                         'heading' => 'Main Title',
                         'type' => 'textfield',
@@ -137,8 +157,9 @@ if (!class_exists('PARContactUsForm')) {
                 'twitter' => $atts['twitter'] ?? '#',
                 'pinterest' => $atts['pinterest'] ?? '#',
                 'codes' => $counters,
-                'informations' => $counters_informations
-            ));
+                'informations' => $counters_informations,
+				"contact_form_html" => do_shortcode('[contact-form-7 id="' .$atts['contact_form_id'] .'"]'),
+			));
         }
     }
 }
