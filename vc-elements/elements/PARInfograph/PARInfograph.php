@@ -68,6 +68,11 @@ if (!class_exists('PARInfograph')) {
                         'type' => 'textfield',
                         'param_name' => 'button_url',
                     ),
+                    array(
+                        'heading' => 'Avatar Class',
+                        'type' => 'textfield',
+                        'param_name' => 'avatar_class',
+                    ),
 				),
 			));
 		}
@@ -92,10 +97,12 @@ if (!class_exists('PARInfograph')) {
                 'redirect_url' => $atts['redirect_url'],
                 'video' => $atts['video_url'],
                 'avatar' => $avatar[0],
+                "array_values" => "[10, 30, 50, 70, '75+']",
                 'has_purple_bg' => $atts['has_purple_bg'],
                 'img_left' => $atts['img_left'],
                 'button_text' => $atts['button_text'],
                 'button_url' => $atts['button_url'],
+                'avatar_class' => $atts['avatar_class'],
             ));
 		}
 	}

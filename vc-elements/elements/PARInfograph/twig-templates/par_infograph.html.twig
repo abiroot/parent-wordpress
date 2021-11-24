@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6">
                 <div class="video-holder" {{ img_left ? 'order-2 order-md-1' : ''  }} >
-                    <img class="avatar avatar-eyes" src="{{ avatar }}" alt="">
+                    <img class="avatar {{ avatar_class }}" src="{{ avatar }}" alt="">
                     <video muted preload autoplay loop>
                         <source src="{{ video }}" type="video/webm">
                         <p>Your user agent does not support the HTML5 Video element.</p>
@@ -24,3 +24,49 @@
         </div>
     </div>
 </section>
+
+<script>
+    if ($("#pricing-slider").length > 0) {
+        var mySlider = new rSlider({
+            target: '#pricing-slider',
+            values: {{ array_values }},
+            range: false,// range slider
+            set: null, // an array of preselected values
+            width: null,
+            scale: false,
+            labels: true,
+            tooltip: false,
+            step: null, // step size
+            disabled: false, // is disabled?
+            onChange: function (vals) {
+                var price = 999;
+                if (vals === "75+") {
+                    $(".pricing-slider .per-month-more").show();
+                    $(".pricing-slider .per-month").hide();
+
+                } else {
+                    if (vals === "10") {
+                        price = 25;
+                    } else if (vals === "30") {
+                        price = 75;
+                    } else if (vals === "50") {
+                        price = 125;
+                    } else if (vals === "70") {
+                        price = 175;
+                    }
+                    $(".pricing-slider .per-month-more").hide();
+                    $(".pricing-slider .per-month").show();
+                }
+                $(".pricing-slider ins").each(function (index) {
+                    if ($(this).find(".child-count").length > 0) {
+                        $(this).text($(this).find(".child-count").text());
+                    }
+                });
+                $(".pricing-slider ins:contains('" + vals + "')").html("<span class='child-count'>" + vals + "</span><span class='child'>Child</span>")
+
+                $(".pricing-slider .price").text(price);
+
+            }
+        });
+    }
+</script>

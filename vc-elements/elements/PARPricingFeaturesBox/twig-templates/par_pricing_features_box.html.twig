@@ -1,0 +1,16 @@
+<section class="pricing-features-box">
+    <div class="container">
+        <div class="cards my-5">
+            <div class="row text-center">
+                {% for val in features_box %}
+                    <div class="col-md-4">
+                        <img src="{{ val.image }} " alt="">
+                        <h5 class="my-2"><b>{{ val.title}} </b></h5>
+                        <p class="text-muted">{{ val.text }}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>

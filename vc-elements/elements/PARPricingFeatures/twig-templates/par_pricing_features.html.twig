@@ -1,0 +1,21 @@
+<section class="pricing-features">
+    <div class="container">
+        <div class="features-box p-5">
+            <div class="row">
+                <div class="col-md-6 my-auto features-svg">
+                    <img src="{{left_image }}" alt="">
+                </div>
+                <div class="col-md-6">
+                    <ul class="features-list">
+                        {% for val in features %}
+                            <li class="mt-4">
+                                <img src="{{ stylesheet_directory_uri }}/assets/images/hardcoded/correct-icon.png" alt="">
+                                <span>{{ val.feature_text }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

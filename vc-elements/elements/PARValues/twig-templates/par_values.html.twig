@@ -1,0 +1,21 @@
+<section class="values">
+    <div class="container">
+        <h2 class="text-center">{{ title_text }}</h2>
+        <div class="row align-items-center">
+            {% for value in values %}
+            <div class="col-md-4 text-center">
+
+                    {% if(loop.index <=3 ) %}
+                    <img src="{{ value.icon }}" alt="">
+                    <h3> {{ value.value_title }}</h3>
+                    <p> {{ value.value_paragraph }}
+                    </p>
+                    {% endif %}
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
