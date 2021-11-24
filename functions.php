@@ -150,6 +150,7 @@ function parents_scripts() {
 
 	//	Fonts
 	wp_enqueue_style('parents-google-font-inter', "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap", array());
+	wp_enqueue_style('parents-google-font-gooper', get_template_directory_uri() . "/assets/fonts/gooper/stylesheet.css", array());
 
 
 	//	Bootstrap
