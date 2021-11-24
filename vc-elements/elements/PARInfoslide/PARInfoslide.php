@@ -49,6 +49,11 @@ if (!class_exists('PARInfoslide')) {
                                 'type' => 'attach_image',
                                 'heading' => "Image",
                             ),
+							array(
+								'param_name' => "video_url",
+								'type' => 'textfield',
+								'heading' => "Video URL",
+							),
                         ),
                     )
                 ),

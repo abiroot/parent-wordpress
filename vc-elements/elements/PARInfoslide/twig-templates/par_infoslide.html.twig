@@ -12,9 +12,22 @@
                                     <span class="author">{{ counter.author }}</span>
                                     <span class="position">{{ counter.position }}</span>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <img src="{{ counter.image }}" alt="">
-                                </div>
+                                {% if {{ counter.video_url }} %}
+                                    <div class="col-12 col-md-6">
+                                        <img id="videoOpener" src="{{ counter.image }}" alt="">
+                                        <div id="vidBox">
+                                            <div id="videCont">
+                                                <video autoplay id="v1" loop controls>
+                                                    <source src="{{ counter.video_url }}" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="col-12 col-md-6">
+                                        <img src="{{ counter.image }}" alt="">
+                                    </div>
+                                {% endif %}
                             </div>
                         </li>
                     {% endfor %}
