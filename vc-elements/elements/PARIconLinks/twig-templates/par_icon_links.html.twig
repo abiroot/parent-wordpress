@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 {% for link in icon_links %}
                     <div class="col-6 col-sm-4 col-md-2 link">
-                        <a href="#">
+                        <a href="{{ link.link_url ?? '#' }}">
                             <img src="{{ link.icon }} "  alt="">
                             <span>{{ link.link_text }}</span>
                         </a>
