@@ -40,7 +40,7 @@ if (!class_exists('PARPrivacyPolicy')) {
 							),
 							array(
 								'param_name' => "main_content",
-								'type' => 'textarea',
+								'type' => 'abiroot_html',
 								'heading' => "Content"
 							),
 
@@ -68,9 +68,9 @@ if (!class_exists('PARPrivacyPolicy')) {
 
 			$pages = vc_param_group_parse_atts($atts['policy_pages']);
 			array_walk($pages, function (&$item, $va) {
-//				if (!empty($item['main_content'])) {
-//					$item['main_content'] = base64_decode($item['main_content']);
-//				}
+				if (!empty($item['main_content'])) {
+					$item['main_content'] = base64_decode($item['main_content']);
+				}
 				$item['main_image'] = wp_get_attachment_image_src($item['main_image'], 'medium');
 				$item['main_image'] = $item['main_image'][0];
 			});

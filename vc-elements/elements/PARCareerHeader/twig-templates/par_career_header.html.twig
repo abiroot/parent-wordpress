@@ -3,10 +3,8 @@
         <div class="row align-items-center">
             <div class="col-md-6 left-content my-5 my-md-0">
                 {% for counter in informations %}
-                        <div class="col-md-2 counter">
-                            <h1 class="font-gooper mb-4">{{ counter.title }}</h1>
-                            <p class="mb-4">{{ counter.text }}</p>
-                        </div>
+                    <h1 class="font-gooper mb-4">{{ counter.title }}</h1>
+                    <p class="mb-4">{{ counter.text }}</p>
                 {% endfor %}
             </div>
             <div class="col-md-6 right-content ">
