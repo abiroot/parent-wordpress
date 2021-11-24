@@ -19,11 +19,23 @@ if (!class_exists('PARPricingHeader')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
-						'heading' => 'Text',
+						'heading' => 'Price Per Child',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
-				),
+						'param_name' => 'price_per_child',
+					),
+                    array(
+                        'heading' => 'Right Image',
+                        'type' => 'attach_image',
+                        'param_name' => 'right_image',
+                    ),
+                    array(
+                        'heading' => 'Show Free Trial',
+                        'type' => 'checkbox',
+                        'param_name' => 'free_trial',
+                    ),
+
+
+                ),
 			));
 		}
 		public function render_shortcode($atts, $content, $tag)
@@ -36,8 +48,13 @@ if (!class_exists('PARPricingHeader')) {
 			wp_enqueue_script('par_pricing_header-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARPricingHeader/twig-templates/par_pricing_header.js", array('jquery'), '1.0', true);
 
+            $side_image = wp_get_attachment_image_src($atts['right_image'], 'full');
 
-			return $this->twigObj->render("par_pricing_header.html.twig", array());
+			return $this->twigObj->render("par_pricing_header.html.twig", array(
+                'price_per_child'=>$atts['price_per_child'] ,
+                'right_image'=>$side_image[0],
+                'free_trial'=>$atts['free_trial']
+            ));
 		}
 	}
 }

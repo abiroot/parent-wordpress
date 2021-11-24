@@ -53,6 +53,7 @@ if (!class_exists('PARENTSBakeryElements')) {
 				"elements/PARCareerCoreValues/PARCareerCoreValues.php",
 				"elements/PARContactUsForm/PARContactUsForm.php",
 				"elements/PARContactUsParentMap/PARContactUsParentMap.php",
+				"elements/PARBlogHeader/PARBlogHeader.php",
 				"elements/PARHeaderInside/PARHeaderInside.php",
 				"elements/PARTitleDescription/PARTitleDescription.php",
 				"elements/PARInfoImage/PARInfoImage.php",

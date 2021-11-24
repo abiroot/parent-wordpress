@@ -19,11 +19,32 @@ if (!class_exists('PAROurVisionHeader')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
-						'heading' => 'Text',
+						'heading' => 'Orange Title Text',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
-				),
+						'param_name' => 'orange_title_text',
+					) ,
+                    array(
+                        'heading' => 'Title Text',
+                        'type' => 'textfield',
+                        'param_name' => 'title_text',
+                    ) ,
+                    array(
+                        'heading' => 'First Paragraph',
+                        'type' => 'textfield',
+                        'param_name' => 'first_paragraph',
+                    ) ,
+                    array(
+                        'heading' => 'Second Paragraph',
+                        'type' => 'textfield',
+                        'param_name' => 'second_paragraph',
+                    ) ,
+                    array(
+                        'heading' => 'Third Paragraph',
+                        'type' => 'textfield',
+                        'param_name' => 'third_paragraph',
+                    ) ,
+
+                ),
 			));
 		}
 		public function render_shortcode($atts, $content, $tag)
@@ -37,7 +58,13 @@ if (!class_exists('PAROurVisionHeader')) {
 				"/vc-elements/elements/PAROurVisionHeader/twig-templates/par_our_vision_header.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_our_vision_header.html.twig", array());
+			return $this->twigObj->render("par_our_vision_header.html.twig", array(
+                'orange_title_text'=>$atts['orange_title_text'] ?? '' ,
+                'title_text'=>$atts['title_text'] ?? '' ,
+                'first_paragraph'=>$atts['first_paragraph'] ?? '' ,
+                'second_paragraph'=>$atts['second_paragraph']  ?? '' ,
+                'third_paragraph'=>$atts['third_paragraph']  ?? '' ,
+            ));
 		}
 	}
 }

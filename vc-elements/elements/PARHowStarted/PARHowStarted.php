@@ -18,11 +18,21 @@ if (!class_exists('PARHowStarted')) {
 				'description' => __('', 'parents'),
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
+                    array(
+                        'heading' => 'Left Image',
+                        'type' => 'attach_image',
+                        'param_name' => 'left_image',
+                    ),
 					array(
-						'heading' => 'Text',
+						'heading' => 'Title Text',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+						'param_name' => 'title_text',
+					),
+                    array(
+                        'heading' => 'Paragraph Text',
+                        'type' => 'textfield',
+                        'param_name' => 'paragraph_text',
+                    ),
 				),
 			));
 		}
@@ -36,8 +46,14 @@ if (!class_exists('PARHowStarted')) {
 			wp_enqueue_script('par_how_started-script', get_template_directory_uri() .
 				"/vc-elements/elements/PARHowStarted/twig-templates/par_how_started.js", array('jquery'), '1.0', true);
 
+            $side_image = wp_get_attachment_image_src($atts['left_image'], 'full');
 
-			return $this->twigObj->render("par_how_started.html.twig", array());
+			return $this->twigObj->render("par_how_started.html.twig", array(
+                'left_image' => $side_image[0] ?? '' ,
+                'title_text'=>$atts['title_text'] ?? ''  ,
+                'paragraph_text'=>$atts['paragraph_text'] ?? '' ,
+
+            ));
 		}
 	}
 }

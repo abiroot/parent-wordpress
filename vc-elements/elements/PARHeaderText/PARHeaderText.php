@@ -19,10 +19,15 @@ if (!class_exists('PARHeaderText')) {
 				'category' => __('Parents Elements', 'parents'),
 				'params' => array(
 					array(
-						'heading' => 'Text',
+						'heading' => 'First Line Header Text',
 						'type' => 'textfield',
-						'param_name' => 'button',
-					)
+						'param_name' => 'first_header_text',
+					),
+                    array(
+                        'heading' => 'Second Line Header Text',
+                        'type' => 'textfield',
+                        'param_name' => 'second_header_text',
+                    )
 				),
 			));
 		}
@@ -37,7 +42,12 @@ if (!class_exists('PARHeaderText')) {
 				"/vc-elements/elements/PARHeaderText/twig-templates/par_header_text.js", array('jquery'), '1.0', true);
 
 
-			return $this->twigObj->render("par_header_text.html.twig", array());
+			return $this->twigObj->render("par_header_text.html.twig", array(
+                'first_header_text'=>$atts['first_header_text'] ,
+                'second_header_text'=>$atts['second_header_text'] ,
+
+
+            ));
 		}
 	}
 }
