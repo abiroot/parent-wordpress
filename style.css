@@ -1220,7 +1220,7 @@ section.counters .counters-container .counter-avatar img {
 }
 
 section.counters .counters-container .counter strong {
-    display: block;
+    display: inline-block;
     color: #3D0671;
     font-size: 54px;
     line-height: 60px;
