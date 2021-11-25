@@ -1545,9 +1545,9 @@ footer .email{
 }
 footer .email img{
     position: absolute;
-    right: 10px;
-    left: 300px;
-    top: 23px;
+    right: 20px;
+    top: 50%;
+    transform: translate(50%);
 }
 
 /*// Medium devices (tablets, less than 992px)*/
