@@ -1,10 +1,7 @@
-$(function () {
-    if($("#vidBox").length > 0){
-        $('#vidBox').VideoPopUp({
-            backgroundColor: "#17212a",
-            opener: "videoOpener",
-            maxweight: "340",
-            idvideo: "v1"
-        });
-    }
-});
+(function ($) {
+    "use strict"; // Start of use strict
+    $('.video-popup').magnificPopup({
+        type: 'iframe'
+    });
+
+})(jQuery); // End of use strict

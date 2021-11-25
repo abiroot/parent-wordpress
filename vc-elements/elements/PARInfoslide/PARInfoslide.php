@@ -73,13 +73,20 @@ if (!class_exists('PARInfoslide')) {
             wp_enqueue_style('plugin-splide-theme-style', get_template_directory_uri() .
                 "/assets/plugins/splide/css/splide.theme.css", array(), '1.0');
 
-            wp_enqueue_script('par_infoslide-script', get_template_directory_uri() .
-                "/vc-elements/elements/PARInfoslide/twig-templates/par_infoslide.js", array('jquery'), '1.0', true);
 
             wp_enqueue_script('plugin-splide-script', get_template_directory_uri() .
                 "/assets/plugins/splide/js/splide.min.js", array('jquery'), '1.0', true);
 
-            $counters = vc_param_group_parse_atts($atts['informations']);
+            wp_enqueue_script('plugin-magnific-popup', get_template_directory_uri() .
+                "/assets/plugins/magnificPopup/magnific-popup.min.js", array('jquery'), '1.0', true);
+			wp_enqueue_style('plugin-magnific-popup', get_template_directory_uri() .
+				"/assets/plugins/magnificPopup/magnific-popup.css", array(), '1.0');
+
+
+
+			wp_enqueue_script('par_infoslide-script', get_template_directory_uri() .
+				"/vc-elements/elements/PARInfoslide/twig-templates/par_infoslide.js", array('jquery'), '1.0', true);
+			$counters = vc_param_group_parse_atts($atts['informations']);
 
             foreach ($counters as $key => $counter) {
                 if(isset($counter['image'])){
