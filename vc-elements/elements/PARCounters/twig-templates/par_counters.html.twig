@@ -4,8 +4,8 @@
             <div class="row align-items-center">
                 <div class="col-md-1"></div>
                 <div class="col-md-2 counter">
-                    <strong data-count="{{ first_counter.counter_number }}">0</strong>
-                    <span>{{ first_counter.counter_text }}</span><span>{{ first_counter.counter_offset ?? '%' }}</span>
+                    <strong data-count="{{ first_counter.counter_number }}">0</strong><strong>{{ first_counter.counter_offset ?? '%' }}</strong>
+                    <span>{{ first_counter.counter_text }}</span>
                 </div>
                 <div class="col-md-2 counter-avatar">
                     <img src="{{ stylesheet_directory_uri }}/assets/vectors/avatar-lego.svg" alt="">
@@ -13,8 +13,8 @@
                 {% for counter in other_counters %}
                     {% if(loop.index <=3 ) %}
                     <div class="col-md-2 counter">
-                        <strong data-count="{{ counter.counter_number }}">0</strong>
-                        <span>{{ counter.counter_text }}</span><span>{{ counter.counter_offset ?? '' }}</span>
+                        <strong data-count="{{ counter.counter_number }}">0</strong><strong>{{ counter.counter_offset ?? '' }}</strong>
+                        <span>{{ counter.counter_text }}</span>
                     </div>
                     {%  endif %}
                 {% endfor %}
