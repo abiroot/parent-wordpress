@@ -5,7 +5,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-2 counter">
                     <strong data-count="{{ first_counter.counter_number }}">0</strong>
-                    <span>{{ first_counter.counter_text }}</span>
+                    <span>{{ first_counter.counter_text }}{{ first_counter.counter_offset ?? '' }}</span>
                 </div>
                 <div class="col-md-2 counter-avatar">
                     <img src="{{ stylesheet_directory_uri }}/assets/vectors/avatar-lego.svg" alt="">
@@ -14,7 +14,7 @@
                     {% if(loop.index <=3 ) %}
                     <div class="col-md-2 counter">
                         <strong data-count="{{ counter.counter_number }}">0</strong>
-                        <span>{{ counter.counter_text }}</span>
+                        <span>{{ counter.counter_text }}{{ counter.counter_offset ?? '' }}</span>
                     </div>
                     {%  endif %}
                 {% endfor %}
