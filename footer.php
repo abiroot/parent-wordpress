@@ -64,7 +64,7 @@
                         <span class="text-white">Request a quote</span>
                         <div class="email">
                             <input type="email" placeholder="Email Address">
-                            <img src="assets/vectors/footer-arrow.svg" alt="">
+                            <img src="assets/images/footer-arrow.svg" alt="">
                         </div>
                     </form>
                 </div>
