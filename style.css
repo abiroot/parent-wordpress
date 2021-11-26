@@ -965,6 +965,12 @@ section.info-image img{
     margin-right: auto;
     box-shadow: 0px 12px 70px rgba(159, 128, 110, 0.15), 0px 2px 10px rgba(159, 128, 110, 0.1);
     border-radius: 20px;
+    transition: all .2s ease-in-out;
+}
+
+
+section.info-image img:hover{
+    transform: scale(1.1);
 }
 
 section.info-image{
