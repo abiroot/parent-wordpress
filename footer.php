@@ -46,8 +46,11 @@
             <!-- Grid row -->
             <div class="row mt-4 mt-md-5">
                 <div class="col-12 col-md-4">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png"
-                         class="logo-footer" alt="">
+                    <a href="<?php echo get_site_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png"
+                             class="logo-footer" alt="">
+                    </a>
+
                     <span class="text-white">2021 © Copyright Parent ApS</span>
                 </div>
                 <div class="col-12 col-md-4 my-2 my-md-0">
