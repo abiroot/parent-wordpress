@@ -181,6 +181,9 @@ if (!class_exists('WP_Bootstrap_Navwalker')) :
 			$classes[] = 'menu-item-' . $item->ID;
 			$classes[] = 'nav-item';
 			$classes[] = 'px-2';
+			if ($args->menu->slug == "footer-menu") {
+				$classes[] = "col-6 col-md-4";
+			}
 
 			// Allow filtering the classes.
 			$classes = apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth);

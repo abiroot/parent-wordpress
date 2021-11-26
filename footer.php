@@ -19,48 +19,19 @@
         <div class="container text-center text-md-start mt-5">
             <!-- Grid row -->
             <div class="row mt-3">
-                <!-- Grid column -->
                 <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-4">
-							<?php
-							wp_nav_menu(
-								array(
-									'container' => false,
-									'theme_location' => 'footer-menu',
-									'menu_id' => 'footer-menu',
-									'menu_class' => 'd-flex navbar-nav me-md-auto mb-2 mb-lg-0 ms-lg-2',
-									'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-									'walker' => new WP_Bootstrap_Navwalker(),
-								)
-							);
-							?>
-                        </div>
-                        <div class="col-md-4">
-                            <p>
-                                <a href="#!" class="footer-link">Terms and Conditions</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Privacy and Policy</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Help Center</a>
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>
-                                <a href="#!" class="footer-link">Our Vision</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Security & Data</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Careers</a>
-                            </p>
-                        </div>
-
-                    </div>
-
+					<?php
+					wp_nav_menu(
+						array(
+							'container' => false,
+							'theme_location' => 'footer-menu',
+							'menu_id' => 'footer-menu',
+							'menu_class' => 'd-flex flex-wrap flex-row navbar-nav me-md-auto mb-2 mb-lg-0 ms-lg-2',
+							'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+							'walker' => new WP_Bootstrap_Navwalker(),
+						)
+					);
+					?>
                 </div>
                 <div class="col-md-4">
                     <form action="" class="request-quote">
@@ -71,10 +42,8 @@
                         </div>
                     </form>
                 </div>
-                <!-- Grid column -->
             </div>
             <!-- Grid row -->
-
             <div class="row mt-4 mt-md-5">
                 <div class="col-12 col-md-4">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png"
