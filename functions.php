@@ -9,7 +9,7 @@
 
 if ( ! defined( 'PARENTS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'PARENTS_VERSION', '1.3.3' );
+	define( 'PARENTS_VERSION', '1.3.4' );
 }
 
 if ( ! function_exists( 'parents_setup' ) ) :

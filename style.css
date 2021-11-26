@@ -958,10 +958,11 @@ section.info-image h3{
 }
 
 section.info-image img{
-    /*margin-top:50px;*/
-    /*margin-left: 50px;*/
     width: 100%;
     display: block;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section.info-image{
