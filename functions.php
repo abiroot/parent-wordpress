@@ -53,10 +53,7 @@ if ( ! function_exists( 'parents_setup' ) ) :
 			array(
 				'primary-menu-left' => esc_html__('Primary Left', 'parents'),
 				'primary-menu-right' => esc_html__('Primary Right', 'parents'),
-				'footer-menu-1' => esc_html__('Footer 1', 'parents'),
-				'footer-menu-2' => esc_html__('Footer 2', 'parents'),
-				'footer-menu-3' => esc_html__('Footer 3', 'parents'),
-				'footer-menu-4' => esc_html__('Footer 4', 'parents'),
+				'footer-menu' => esc_html__('Footer', 'parents'),
 			)
 		);
 

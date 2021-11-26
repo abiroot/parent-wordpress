@@ -1532,12 +1532,36 @@ footer .input-arrow {
     position: relative;
     top: 0;
 }
+
 footer .social-media{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+
+footer .social-media li{
+    background: none;
+    border: none;
+}
+
+footer .social-media li i{
+    color: #BA8DFE;
+    font-size: 1.5em;
+}
+
+footer .logo-footer{
+    width: 100%;
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+footer .mobile-app-links img{
+    width: 100%;
+    display: inline-block;
+    max-width: 100px;
+    margin: 5px;
 }
 
 footer .email{

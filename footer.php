@@ -23,15 +23,18 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-4">
-                            <p>
-                                <a href="#!" class="footer-link">Contact Us</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Blog</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="footer-link">Entreprise</a>
-                            </p>
+							<?php
+							wp_nav_menu(
+								array(
+									'container' => false,
+									'theme_location' => 'footer-menu',
+									'menu_id' => 'footer-menu',
+									'menu_class' => 'd-flex navbar-nav me-md-auto mb-2 mb-lg-0 ms-lg-2',
+									'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+									'walker' => new WP_Bootstrap_Navwalker(),
+								)
+							);
+							?>
                         </div>
                         <div class="col-md-4">
                             <p>
@@ -72,22 +75,33 @@
             </div>
             <!-- Grid row -->
 
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png" alt="">
+            <div class="row mt-4 mt-md-5">
+                <div class="col-12 col-md-4">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.png"
+                         class="logo-footer" alt="">
                     <span class="text-white">2021 © Copyright Parent ApS</span>
                 </div>
-                <div class="col-md-4">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-store.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/google-play.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-gallery.png" alt="">
+                <div class="col-12 col-md-4 my-2 my-md-0">
+                    <div class="mobile-app-links">
+                        <a href="#">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-store.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/google-play.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/app-gallery.png" alt="">
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-4 social-media">
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/twitter.svg" alt=""></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/youtube.svg" alt=""></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/facebook.svg" alt=""></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/instagram.svg" alt=""></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/vectors/pinterest.svg" alt=""></a>
+                <div class="col-12 col-md-4 social-media my-2 my-md-0">
+                    <ul class="list-group list-group-horizontal list-group-flush">
+                        <li class="list-group-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li class="list-group-item"><a href="#"><i class="bi bi-youtube"></i></a></li>
+                        <li class="list-group-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-group-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-group-item"><a href="#"><i class="bi bi-pinterest"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
