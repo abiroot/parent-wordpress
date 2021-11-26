@@ -1016,7 +1016,7 @@ section.article-cards .article-card:hover {
 }
 
 section.article-cards .article-card .article-header {
-    text-align: center;
+    text-align: left;
 }
 
 section.article-cards .article-card .article-header img {
