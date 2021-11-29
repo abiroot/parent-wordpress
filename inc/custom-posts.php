@@ -94,4 +94,41 @@ if (is_admin()) {
 
 	//Finish Meta Box Decleration
 	$my_meta->Finish();
+
+
+	/*
+	 * prefix of meta keys, optional
+	 */
+	$prefix = '';
+	/*
+	 * configure your meta box
+	 */
+	$config = array(
+		'id' => 'post_custom_meta',          // meta box id, unique per meta box
+		'title' => 'Post Meta',          // meta box title
+		'pages' => array('post'),        // taxonomy name, accept categories, post_tag and custom taxonomies
+		'context' => 'normal',            // where the meta box appear: normal (default), advanced, side; optional
+		'priority' => 'high',
+		'fields' => array(),            // list of meta fields (can be added by field arrays)
+		'local_images' => true,          // Use local or hosted images (meta box images for add/remove)
+		'use_with_theme' => get_template_directory() . '/inc/tax-meta-class'          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
+	);
+
+	/*
+	 * Initiate your meta box
+	 */
+	$my_meta = new AT_Meta_Box($config);
+
+	/*
+	 * Add fields to your meta box
+	 */
+
+	//text field
+	$my_meta->addFile($prefix . 'large_image', array('name' => 'Large Image'));
+
+	//posts field
+//	$my_meta->addPosts($prefix . 'posts_field_id', array('args' => array('post_type' => 'page')), array('name' => __('My Posts ', 'tax-meta')));
+
+	//Finish Meta Box Decleration
+	$my_meta->Finish();
 }

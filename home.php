@@ -37,10 +37,12 @@ $latestPost = reset($latestPost);
                                 <p>
 									<?php echo wp_trim_excerpt($latestPost['post_content']); ?>
                                 </p>
-                                <a href="<?php echo get_permalink($latestPost); ?>" class="btn btn-tertiary mx-1">Read Article</a>
+                                <a href="<?php echo get_permalink($latestPost); ?>" class="btn btn-tertiary mx-1">Read
+                                    Article</a>
                             </div>
                             <div class="col-md-6">
-                                <img class="header-img" src="<?php echo get_the_post_thumbnail_url($latestPost->ID); ?>" alt="">
+                                <img class="header-img" src="<?php echo get_the_post_thumbnail_url($latestPost->ID); ?>"
+                                     alt="">
                             </div>
                         </div>
                     </div>
@@ -56,20 +58,64 @@ $latestPost = reset($latestPost);
 					<?php
 					if (have_posts()) {
 
-						/* Start the Loop */
-						while (have_posts()) {
-							the_post();
+					/* Start the Loop */
+					while (have_posts()) {
+						the_post();
 
-							/*
-							 * Include the Post-Type-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-							 */
-							get_template_part('template-parts/content', get_post_type());
+						/*
+						 * Include the Post-Type-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+						 */
+					?>
+                    <div class="col-md-4 mb-5">
+                        <div class="article-card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                            <div class="article-header">
+                                <a href="<?php echo get_permalink(); ?>">
+									<?php
+									echo get_the_post_thumbnail();
+									?>
+                                </a>
+                                <div class="text-left">
+									<?php
+									$categories = get_categories();
+									foreach ($categories as $category) {
+										?>
+                                        <span class="category d-inline-block"><?php echo $category->name; ?></span>
+										<?php
+									}
+									?>
+                                </div>
+                            </div>
+                            <a href="<?php echo get_permalink(); ?>">
+                                <div class="article-body">
+									<?php
+									the_title('<h2>', '</h2>');
+									?>
+
+									<?php
+									the_excerpt();
+									?>
+                                </div>
+                            </a>
+                            <div class="article-footer">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <span class="author"><?php echo get_the_author() ?></span>
+                                        <span class="date"><?php echo get_the_date() ?></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="time-read">5 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
 
 						}
 
-						the_posts_navigation();
+//						the_posts_navigation();
 
 					} else {
 

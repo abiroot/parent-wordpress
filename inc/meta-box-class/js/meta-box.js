@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
   });
 });
 function update_repeater_fields(){
-    _metabox_fields.init();
+  _metabox_fields.init();
 }
 //metabox fields object
 var _metabox_fields = {
@@ -61,7 +61,7 @@ var _metabox_fields = {
         if(! $(this).hasClass('no-fancy'))
           $(this).select2();
       });
-    }  
+    }
   },
   get_query_var: function(name){
     var match = RegExp('[?&]' + name + '=([^&#]*)').exec(location.href);
@@ -108,7 +108,7 @@ var _metabox_fields = {
         default:
           theme = 'default';
       }
-      
+
       var editor = CodeMirror.fromTextArea(document.getElementById($(this).attr('id')), {
         lineNumbers: true,
         matchBrackets: true,
@@ -130,40 +130,40 @@ var _metabox_fields = {
   load_conditinal: function(){
     $(".conditinal_control").click(function(){
       if($(this).is(':checked')){
-        $(this).next().show('fast');    
+        $(this).next().show('fast');
       }else{
-        $(this).next().hide('fast');    
+        $(this).next().hide('fast');
       }
     });
   },
-  load_time_picker: function(){  
+  load_time_picker: function(){
     $('.at-time').each( function() {
-      
-      var $this   = $(this),
-            format   = $this.attr('rel'),
-            aampm    = $this.attr('data-ampm');
-        if ('true' == aampm)
-          aampm = true;
-        else
-          aampm = false;
 
-        $this.timepicker( { showSecond: true, timeFormat: format, ampm: aampm } );
-      
+      var $this   = $(this),
+          format   = $this.attr('rel'),
+          aampm    = $this.attr('data-ampm');
+      if ('true' == aampm)
+        aampm = true;
+      else
+        aampm = false;
+
+      $this.timepicker( { showSecond: true, timeFormat: format, ampm: aampm } );
+
     });
   },
   load_date_picker: function() {
     $('.at-date').each( function() {
-      
+
       var $this  = $(this),
           format = $this.attr('rel');
 
       $this.datepicker( { showButtonPanel: true, dateFormat: format } );
-      
+
     });
   },
   load_color_picker: function(){
     if ($('.at-color-iris').length>0)
-      $('.at-color-iris').wpColorPicker(); 
+      $('.at-color-iris').wpColorPicker();
   },
 };
 //call object init in delay
@@ -202,7 +202,7 @@ jQuery(document).ready(function($){
               inited.set_preview('file',false);
               inited.replaceFileUploadClass($(this));
             }
-          });     
+          });
         },
         set_fields: function (el){
           inited.file_url = $(el).prev();
@@ -221,7 +221,7 @@ jQuery(document).ready(function($){
           var ext = $(el).attr("data-ext") || false;
           var name = $(el).attr('id');
           var multi = ($(el).hasClass("multiFile")? true: false);
-          
+
           if ( typeof inited.file_frame[name] !== "undefined")  {
             if (ext){
               inited.file_frame[name].uploader.uploader.param( 'uploadeType', ext);
@@ -234,11 +234,11 @@ jQuery(document).ready(function($){
 
           inited.file_frame[name] = wp.media({
             library: {
-                type: mime
+              type: mime
             },
             title: jQuery( this ).data( 'uploader_title' ),
             button: {
-            text: jQuery( this ).data( 'uploader_button_text' ),
+              text: jQuery( this ).data( 'uploader_button_text' ),
             },
             multiple: multi  // Set to true to allow multiple files to be selected
           });
@@ -267,8 +267,8 @@ jQuery(document).ready(function($){
           var multi = ($(el).hasClass("multiFile")? true: false);
           // If the media frame already exists, reopen it.
           if ( typeof inited.image_frame[name] !== "undefined")  {
-                  inited.image_frame[name].open();
-                  return;
+            inited.image_frame[name].open();
+            return;
           }
           // Create the media frame.
           inited.image_frame[name] =  wp.media({
@@ -277,7 +277,7 @@ jQuery(document).ready(function($){
             },
             title: jQuery( this ).data( 'uploader_title' ),
             button: {
-            text: jQuery( this ).data( 'uploader_button_text' ),
+              text: jQuery( this ).data( 'uploader_button_text' ),
             },
             multiple: multi  // Set to true to allow multiple files to be selected
           });
@@ -330,7 +330,7 @@ jQuery(document).ready(function($){
         if (!inited){
           inited = init();
         }
-        return inited; 
+        return inited;
       }
     }
   })()
